@@ -29,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
             SIGNAL(clicked(bool)),
             this,
             SLOT(stop()));
+
+    ui->horizontalSliderTiming->setValue(3);
+    ui->horizontalSliderMin->setValue(0);
+    ui->horizontalSliderMax->setValue(100);
 }
 
 void MainWindow::tcpConnect(){

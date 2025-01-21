@@ -76,7 +76,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QListView" name="listView"/>
+         <widget class="QListWidget" name="listWidget"/>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
@@ -204,10 +204,109 @@
    <extends>QWidget</extends>
    <header>plotter.h</header>
    <container>1</container>
+   <slots>
+    <slot>setTiming()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
  <connections>
+  <connection>
+   <sender>pushButtonUpdate</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>208</x>
+     <y>424</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>426</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonConnect</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tcpConnect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonDisconnect</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tpcDisconnect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonStart</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonStop</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>stop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>508</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderTiming</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>setTiming()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>482</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>505</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
   <connection>
    <sender>horizontalSliderTiming</sender>
    <signal>valueChanged(int)</signal>
@@ -215,14 +314,38 @@
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>211</x>
-     <y>403</y>
+     <x>169</x>
+     <y>481</y>
     </hint>
     <hint type="destinationlabel">
-     <x>273</x>
-     <y>409</y>
+     <x>267</x>
+     <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>19</x>
+     <y>414</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>updateList()</slot>
+  <slot>tcpConnect()</slot>
+  <slot>tpcDisconnect()</slot>
+  <slot>stop()</slot>
+  <slot>start()</slot>
+  <slot>updateData()</slot>
+ </slots>
 </ui>
