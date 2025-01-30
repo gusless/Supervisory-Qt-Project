@@ -131,7 +131,6 @@ void MainWindow::getData(){
     }
 }
 
-
 void MainWindow::updateData(){
     if(!ui->listWidget->selectedItems().isEmpty()){
         ui->horizontalSliderTiming->setVisible(true);
